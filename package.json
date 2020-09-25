@@ -1,0 +1,14 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "server",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Gerasim",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
