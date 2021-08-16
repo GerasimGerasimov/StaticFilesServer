@@ -1,6 +1,17 @@
 const express = require("express")
 const app = express()
 
+let NodePath = process.argv[0];
+let AppPath = process.argv[1];
+let ServerPort = process.argv[2];
+let FrontEndPath = process.argv[3];
+
+
+console.log(`Sterting HTTP Server...`)
+console.log(`  AppPath: ${AppPath}`)
+console.log(`  ServerPort: ${ServerPort}`)
+console.log(`  FrontEndPath: ${FrontEndPath}`)
+
 app.all('*', function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
@@ -8,7 +19,7 @@ app.all('*', function(req, res, next) {
     next();
 });
 
-app.use(express.static(__dirname + '/build'));
+app.use(express.static(FrontEndPath));//__dirname + '/build'));
 
-console.log('server started at 4000')
-app.listen(4000)
+console.log(`HTTP Server started at: ${ServerPort}`)
+app.listen(ServerPort)
